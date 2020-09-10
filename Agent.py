@@ -26,13 +26,27 @@ class Location:
             return True
         return False
 
-def Adjacent(loc1, loc2) -> bool:
+def Adjacent(loc1, loc2):
     x1, x2, y1, y2 = loc1.x, loc2.x, loc1.y, loc2.y
     if (x1 == x2 and abs(y1-y2) == 1) or (abs(x1-x2) == 1 and y1 == y2):
         return True
     return False
 
+class State:
+    def __init__(self):
+        self.gold = False
+        self.arrow = True
+        self.location = Location()
+        self.orientation = Orientation.RIGHT
 
+    def printOrientation(self):
+        switch = {
+            Orientation.LEFT: "LEFT",
+            Orientation.UP: "UP",
+            Orientation.RIGHT: "RIGHT",
+            Orientation.DOWN: "DOWN"
+        }
+        return switch[self.orientation]
 
 # class Agent:
 #     def __init__(self):
