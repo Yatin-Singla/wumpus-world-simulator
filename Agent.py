@@ -9,6 +9,30 @@ class Orientation(Enum):
     LEFT = 2
     DOWN = 3
 
+class Location:
+    def __init__(self, x=1, y=1):
+        self.x = x
+        self.y = y
+
+    def __del__(self):
+        pass
+
+    # string representation
+    def __repr__(self):
+        return "({0}, {1})".format(self.x, self.y)
+
+    def __eq__(self, location):
+        if self.x == location.x and self.y == location.y:
+            return True
+        return False
+
+def Adjacent(loc1, loc2) -> bool:
+    x1, x2, y1, y2 = loc1.x, loc2.x, loc1.y, loc2.y
+    if (x1 == x2 and abs(y1-y2) == 1) or (abs(x1-x2) == 1 and y1 == y2):
+        return True
+    return False
+
+
 
 # class Agent:
 #     def __init__(self):
